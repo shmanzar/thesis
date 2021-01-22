@@ -10,6 +10,8 @@ Imbruce, Valerie. _From Farm to Canal Street: Chinatown's Alternative Food Netwo
 
 Santlofer, Joy. _Food City: Four Centuries of Food-Making in New York_. New York, NY: W.W. Norton &amp; Company, Independent Publishers since 1923, 2017.
 
+NYPL Labs | What's on the menu? Accessed January 22, 2021. http://menus.nypl.org/.
+
 Ruggless, Ron. _COVID-19 Devastated NYC Restaurant Industry, State Comptroller’s Report Says_. Restaurant Hospitality, October 1, 2020. https://doi.org/0147-9989.
 
 MSDV Thesis 2021 | Parsons School of Design
