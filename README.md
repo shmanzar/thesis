@@ -2,6 +2,10 @@
 
 ## WIP
 
+## Storyboard
+
+**[Link](https://github.com/shmanzar/thesis/tree/master/storyboard/thesis-storyboard.pdf)**
+
 ## Currently reviewing:
 
 Colgrove, James Keith. _Epidemic City: the Politics of Public Health in New York_. New York: Russell Sage Foundation, 2011.
