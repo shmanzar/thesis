@@ -2,6 +2,10 @@
 
 ## WIP
 
+## Abstract
+
+Since March 2020, when the COVID-19 lockdown began, the restaurant industry, employing hundreds of thousands, attracting millions of visitors who spend around $46 billion annually,  suffered a dual burden of having lost the customer flow on which it depended on for survival but also now being termed as “essential”. The food service industry has had to radically shift how it operated, with a larger focus on deliveries and now outdoor dining. There is a need to understand and document the changes in the hospitality industry because they are fundamentally changing their own streets and neighbourhoods, and in doing so transforming the city as a whole. In the following sections, public data on restaurants, labour, federal support, and data collected and ‘scrapped’ from the news sites will be used to chart out and map the significance of the industry to New York City, the damage done by the pandemic, and finally, the attempted recovery efforts.
+
 ## Storyboard
 
 **[Link](https://github.com/shmanzar/thesis/tree/master/storyboard/thesis-storyboard.pdf)**
