@@ -9,6 +9,7 @@ Since March 2020, when the COVID-19 lockdown began, the restaurant industry, emp
 ## Storyboard
 
 **[Link to exploratory ideas](https://github.com/shmanzar/thesis/tree/master/storyboard/thesis-storyboard.pdf)**
+
 **[Link to initial storyboard](https://xd.adobe.com/view/96ca491b-d5d1-4d14-9655-59261a81503a-c399/)**
 
 ## Currently reviewing:
