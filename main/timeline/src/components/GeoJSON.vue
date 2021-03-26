@@ -9,8 +9,11 @@
             @mouseenter="onHover(feature.properties)"
           ></path>
         </g>
-        <text id="hover" :x="50" :y="50"></text>
-      </svg>
+ <text id="hover" :x="50" :y="50">
+      <tspan id="hover-1"  :dy="10"></tspan>
+      <tspan id="hover-2"  :dy="20"></tspan>
+    </text>
+    </svg>
 </template>
 
 <script>
@@ -40,13 +43,19 @@ export default {
   methods: {
         onHover(nextHover) {
       if (nextHover === null) {
-        d3.select('#hover').text('')
+        d3.select('#hover').selectAll('tspan').text('')
         return;
       }
       const projectedCentroid = this.projection(nextHover.centroid)
-      d3.select('#hover').text(nextHover.admin)
+     const hover = d3.select('#hover')
         .attr('x', projectedCentroid[0])
         .attr('y', projectedCentroid[1])
+      hover.select('#hover-1')
+        .attr('x', projectedCentroid[0])
+        .text(nextHover.admin)
+      hover.select('#hover-2')
+        .attr('x', projectedCentroid[0])
+        .text(nextHover[this.colorVar])
     },
   }
 }
