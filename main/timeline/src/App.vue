@@ -4,7 +4,7 @@
     <!--<h2>Chart of COVID19 cases</h2>-->
   </div>
   <svg>
-    <!--<Timeline />-->
+    <Timeline />
   </svg>
   <el-divider></el-divider>
 <!--  <div class="maps">-->
@@ -25,6 +25,8 @@
 <script>
 // import * as d3 from "d3";
 import TimelineBar from './components/timeline-bar.vue';
+import Timeline from './components/timeline-chart.vue';
+
 
 
 
@@ -34,7 +36,8 @@ export default {
 
   },
   components: {
-    TimelineBar
+    TimelineBar,
+    Timeline
   },
   data() {
     return {

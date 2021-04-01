@@ -24,7 +24,7 @@ import YAxis from './timeline-YAxis.vue';
 // var parseTime = d3.timeParse("%d-%b-%y");
 
 export default {
-  name: 'App',
+  name: 'Timeline',
   created() {
     d3.csv('../cases-by-day.csv')
       .then(data => {
@@ -34,6 +34,7 @@ export default {
         })
         console.log(data);
         this.casesData = data;
+        console.log(this.casesData)
 
       });
   },
@@ -55,9 +56,10 @@ export default {
       },
       case_countLine() {
           const lineGenerator = d3.line()
-            .x(d => this.xScale(d.year))
-            .y(d => this.yScale(d.cases));
-          return lineGenerator();
+            .x(function(d) { return this.xScale(d.year)})
+            // .x( this.xScale(d.year))
+            .y(function(d) { return this.yScale(d.cases)});
+          return lineGenerator(this.casesData);
       },
   },
   data() {
