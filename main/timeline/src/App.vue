@@ -1,90 +1,50 @@
 <template>
 <div class='App'>
   <div class="header">
-    <div class="legend">
-      <div v-for ='color in colorDomain' class ='legend-item' :key='color'>
-        <div class ='legend-item-colour' :style="{ backgroundColor: colorScale(color) }"></div>
-
-        <div class ='legend-item-text'>
-          {{color}}
-        </div>
-      </div>    </div>
-    <el-select v-model="colorVar" @change="setColorVar">
-      <el-option
-        v-for="v in colorVars"
-        :key="v"
-        :label="v"
-        :selected="v === colorVar"
-        :value="v"
-      ></el-option>
-    </el-select>
+    <!--<h2>Chart of COVID19 cases</h2>-->
   </div>
+  <svg>
+    <!--<Timeline />-->
+  </svg>
   <el-divider></el-divider>
-  <div class="maps">
+<!--  <div class="maps">-->
+
     <el-card>
-      <GeoJSON 
-      :height = 'height'
-      :width = 'width'
-      :features = 'map.features'
-      :colorScale = 'colorScale'
-      :colorVar = 'colorVar'
-      />
+      <h2>timeline here</h2>
+<TimelineBar />
+
     </el-card>
-    <el-card>
-      <MapboxMap 
-      :map ='map'
-      :colorScale = 'colorScale'
-      :colorVar= 'colorVar'
-      :colorDomain= 'colorDomain'
-      />
-    </el-card>
-  </div>
+<!--        <el-card>-->
+<!--<h2>Pop ups here</h2>-->
+<!--    </el-card>-->
+<!--  </div>-->
 </div>
+
 </template>
 
 <script>
-import * as d3 from "d3";
-import GeoJSON from './components/GeoJSON.vue';
-import MapboxMap from './components/MapboxMap.vue';
+// import * as d3 from "d3";
+import TimelineBar from './components/timeline-bar.vue';
 
-import map from './africa.geo.json'
+
 
 export default {
   name: 'App',
+  created() {
+
+  },
   components: {
-    GeoJSON,
-    MapboxMap
+    TimelineBar
   },
   data() {
     return {
-      map: { 
-        ...map, 
-        features: map.features.map(f => ({ 
-          ...f, 
-          properties: {
-            ...f.properties,
-            centroid: d3.geoCentroid(f)
-          }
-        }))
-      },
-      colorVar: 'economy',
-      colorVars: ['economy', 'income_grp', 'subregion'],
-      width: 400,
-      height: 500,
+
     }
   },
   mounted() {
  
   },
   computed: {
-
-    colorDomain() {
-      return Array.from(new Set(map.features.map(d => d.properties[this.colorVar])));
-    },
-    colorScale() {
-      return d3.scaleOrdinal(d3.schemeBrBG[this.colorDomain.length])
-        .domain(this.colorDomain)
-    },
 
   },
   methods: {
@@ -117,30 +77,8 @@ export default {
     height: 500px;
     width: 400px;
   }
-  text {
-    transition: fill-opacity 0.5s;
-    font-size: 12pt;
-    text-anchor: middle;
-    pointer-events: none;
-  }
-  path {
-    fill-opacity: 0.8;
-    stroke: black;
-  }
-  path:hover {
-    fill-opacity: 1;
-  }
-  .legend-item-colour {
-    height: 20px;
-    width: 20px;
-    display: inline-block;
-    
-  }
-  .legend-item-text {
-      margin: 5px;
-      display: inline-block;
-      vertical-align: bottom;
+  
 
-    
-  }
 </style>
+
+ 
