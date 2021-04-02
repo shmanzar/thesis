@@ -3,9 +3,9 @@
   <div class="header">
     <!--<h2>Chart of COVID19 cases</h2>-->
   </div>
-  <svg>
+  
     <Timeline />
-  </svg>
+  
   <el-divider></el-divider>
 <!--  <div class="maps">-->
 
@@ -66,7 +66,7 @@ export default {
     flex-direction: column;
   }
   .header {
-    padding: 10px;
+    margin: 50px;
     display: flex;
   }
   .legend {

@@ -1,7 +1,7 @@
 <template>
    <svg :height="height" :width="width">
     <path
-    :d="case_countLine"
+    :data="case_countLine"
     fill="none"
     stroke="black"
     />
@@ -20,17 +20,17 @@
 import * as d3 from 'd3';
 import XAxis from './timeline-XAxis.vue';
 import YAxis from './timeline-YAxis.vue';
-
 // var parseTime = d3.timeParse("%d-%b-%y");
 
 export default {
   name: 'Timeline',
   created() {
+
     d3.csv('../cases-by-day.csv')
       .then(data => {
         data.forEach(d => {
           d.cases = +d["CASE_COUNT"]
-          d.year = new Date(d.date_of_interest).toLocaleDateString("en-US");
+          d.year = new Date(d.date_of_interest);
         })
         console.log(data);
         this.casesData = data;
@@ -45,7 +45,7 @@ export default {
   },
   computed: {
       xScale() {
-          return d3.scaleLinear()
+          return d3.scaleTime()
             .domain(d3.extent(this.casesData, d => d.year))
             .range([0, this.width - this.margin])
       },
@@ -56,10 +56,11 @@ export default {
       },
       case_countLine() {
           const lineGenerator = d3.line()
-            .x(function(d) { return this.xScale(d.year)})
-            // .x( this.xScale(d.year))
-            .y(function(d) { return this.yScale(d.cases)});
-          return lineGenerator(this.casesData);
+            .x(d => this.xScale(d.year))
+            .y(d => this.yScale(d.cases))
+            .curve(d3.curveMonotoneX)
+            // console.log(this.casesData)
+          return lineGenerator(this.casesData)
       },
   },
   data() {
@@ -68,8 +69,8 @@ export default {
       // xVar: "sepal_length",
       // yVar: "petal_width",
       margin: 100,
-      width: 500,
-      height: 300,
+      width: 1400,
+      height: 700,
       casesData: [],
     }
   },
@@ -78,24 +79,14 @@ export default {
 
 <style>
   body {
-    padding: 0;
-    margin: 0;
+    /*padding: 0;*/
+    /*margin: 0;*/
   }
-  .App {
+  .Timeline {
     display: flex;
     flex-direction: column;
   }
-  .header {
-    padding: 10px;
-    display: flex;
-  }
-  .legend {
-    margin: 10px;
-  }
-  .maps {
-    display: flex;
-    justify-content: space-around;
-  }
+
   
   text {
     transition: fill-opacity 0.5s;

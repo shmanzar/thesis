@@ -1,7 +1,7 @@
 <template>
   <g 
     class="axis x-axis"
-    :transform="`translate(0, ${yTranslate})`"
+    :transform="`translate(100, ${yTranslate})`"
   >
   </g>
 </template>
