@@ -1,7 +1,7 @@
 <template>
   <g 
     class="axis x-axis"
-    :transform="`translate(100, ${yTranslate})`"
+    :transform="`translate(0, ${yTranslate})`"
   >
   </g>
 </template>
@@ -23,4 +23,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>

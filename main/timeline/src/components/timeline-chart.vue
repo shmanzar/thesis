@@ -1,9 +1,10 @@
 <template>
    <svg :height="height" :width="width">
-    <path
+          <path
     :data="case_countLine"
     fill="none"
     stroke="black"
+    stroke-width="3"
     />
     <XAxis 
       :xScale="xScale" 
@@ -13,19 +14,19 @@
       :yScale="yScale"
       :xTranslate="margin"
     />
+
   </svg>  
+
 </template>
 
 <script>
 import * as d3 from 'd3';
 import XAxis from './timeline-XAxis.vue';
 import YAxis from './timeline-YAxis.vue';
-// var parseTime = d3.timeParse("%d-%b-%y");
 
 export default {
   name: 'Timeline',
   created() {
-
     d3.csv('../cases-by-day.csv')
       .then(data => {
         data.forEach(d => {
@@ -47,18 +48,18 @@ export default {
       xScale() {
           return d3.scaleTime()
             .domain(d3.extent(this.casesData, d => d.year))
-            .range([0, this.width - this.margin])
+            .range([this.margin, this.width - this.margin])
       },
       yScale() {
           return d3.scaleLinear()
             .domain(d3.extent(this.casesData, d => d.cases))
-            .range([this.height - this.margin, 0])
+            .range([this.height - this.margin, this.margin])
       },
       case_countLine() {
           const lineGenerator = d3.line()
             .x(d => this.xScale(d.year))
             .y(d => this.yScale(d.cases))
-            .curve(d3.curveMonotoneX)
+            // .curve(d3.curveMonotoneX)
             // console.log(this.casesData)
           return lineGenerator(this.casesData)
       },
@@ -68,6 +69,7 @@ export default {
       // points: [],
       // xVar: "sepal_length",
       // yVar: "petal_width",
+      
       margin: 100,
       width: 1400,
       height: 700,
