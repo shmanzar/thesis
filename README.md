@@ -8,7 +8,7 @@ Since March 2020, when the COVID-19 lockdown began, the restaurant industry, emp
 
 ## Preview
 
-[](preview.png)
+![](preview.png)
 
 ## Storyboard
 
