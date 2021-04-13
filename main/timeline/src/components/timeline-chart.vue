@@ -28,7 +28,7 @@ import YAxis from './timeline-YAxis.vue';
 export default {
   name: 'Timeline',
   created() {
-    d3.csv('../cases-by-day.csv')
+    d3.csv('./cases-by-day.csv')
       .then(data => {
         data.forEach(d => {
           d.cases = +d["CASE_COUNT"]
