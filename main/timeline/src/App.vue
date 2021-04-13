@@ -3,8 +3,8 @@
   <div class="header">
     <!--<h2>Chart of COVID19 cases</h2>-->
   </div>
-  
-    <Timeline />
+
+  <Timeline />
   
   <el-divider></el-divider>
 <!--  <div class="maps">-->
