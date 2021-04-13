@@ -50,5 +50,8 @@
   /*  ". . . . ";*/
   
 }
+body {
+  font-family: Helvetica;
+}
 
 </style>

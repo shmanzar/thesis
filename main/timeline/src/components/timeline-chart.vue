@@ -61,7 +61,7 @@ export default {
           const lineGenerator = d3.line()
             .x(d => this.xScale(d.year))
             .y(d => this.yScale(d.cases))
-            // .curve(d3.curveMonotoneX)
+            .curve(d3.curveMonotoneX)
             console.log(this.filteredDate)
           return lineGenerator(this.filteredDate)
       },
@@ -76,13 +76,9 @@ export default {
   },
   data() {
     return {
-      // points: [],
-      // xVar: "sepal_length",
-      // yVar: "petal_width",
-      
-      margin: 100,
+      margin: 50,
       width: 1400,
-      height: 500,
+      height: 400,
       casesData: [],
     }
   }

@@ -1,8 +1,8 @@
 <template>
 <div class='App'>
-  <div class="header">
+  <!-- <div class="header"> -->
     <!--<h2>Chart of COVID19 cases</h2>-->
-  </div>
+  <!-- </div> -->
 
   <Timeline />
   
@@ -10,7 +10,7 @@
 <!--  <div class="maps">-->
 
     <el-card>
-      <h2>timeline here</h2>
+      <!-- <h2>timeline here</h2> -->
 <TimelineBar />
 
     </el-card>
@@ -69,9 +69,7 @@ export default {
     margin: 50px;
     display: flex;
   }
-  .legend {
-    margin: 10px;
-  }
+ 
   .maps {
     display: flex;
     justify-content: space-around;
