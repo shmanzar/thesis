@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(255, 255, 250);
+  margin: 0;
+}
+
+div.tooltip {
+  position: absolute;
+  padding: 10px;
+  font: 12px sans-serif;
+  background: white;
+  border: 1px;
+  border-radius: 3px;
+  pointer-events: none;
+  border-style: solid;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
