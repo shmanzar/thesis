@@ -76,3 +76,5 @@ node_modules/
 
 # pm2 env files
 ecosystem.config.js
+
+*.log
