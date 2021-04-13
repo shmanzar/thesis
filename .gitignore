@@ -69,7 +69,7 @@ Backup of *.doc*
 
 # node module folder
 node_modules/
-
+dist/
 # dotenv files
 *.env
 *.env.local
