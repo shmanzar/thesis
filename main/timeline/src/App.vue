@@ -1,5 +1,8 @@
 <template>
 <div class='App'>
+<el-image src="hero-title.svg" alt=""></el-image>
+<el-image src="hero-subtitle.svg" alt=""></el-image>
+
   <!-- <div class="header"> -->
     <!--<h2>Chart of COVID19 cases</h2>-->
   <!-- </div> -->
@@ -60,6 +63,7 @@ export default {
   body {
     padding: 0;
     margin: 0;
+    background-color: black;
   }
   .App {
     display: flex;

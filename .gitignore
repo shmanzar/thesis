@@ -68,6 +68,7 @@ Backup of *.doc*
 *.~vsd*
 
 # node module folder
+jsconfig.json
 node_modules/
 dist/
 

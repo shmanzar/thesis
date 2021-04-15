@@ -4,7 +4,7 @@
     :d="case_countLine"
     :data="casesData"
     fill="none"
-    stroke="black"
+    stroke="orange"
     stroke-width="3"
 
     />
@@ -16,9 +16,7 @@
       :yScale="yScale"
       :xTranslate="margin"
     />
-
   </svg>  
-
 </template>
 
 <script>
