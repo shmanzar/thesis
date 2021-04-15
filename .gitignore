@@ -70,6 +70,7 @@ Backup of *.doc*
 # node module folder
 node_modules/
 dist/
+jsconfig.json
 
 # dotenv files
 *.env
