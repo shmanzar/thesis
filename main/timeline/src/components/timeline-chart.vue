@@ -8,10 +8,10 @@
     stroke-width="3"
 
     />
-    <XAxis 
+    <!-- <XAxis 
       :xScale="xScale" 
       :yTranslate="height - margin"
-    />
+    /> -->
     <YAxis 
       :yScale="yScale"
       :xTranslate="margin"
@@ -21,7 +21,7 @@
 
 <script>
 import * as d3 from 'd3';
-import XAxis from './timeline-XAxis.vue';
+// import XAxis from './timeline-XAxis.vue';
 import YAxis from './timeline-YAxis.vue';
 export default {
   name: 'Timeline',
@@ -40,7 +40,7 @@ export default {
   },
   components: {
     // LabeledPoint,
-    XAxis,
+    // XAxis,
     YAxis
   },
 

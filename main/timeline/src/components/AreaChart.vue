@@ -1,17 +1,20 @@
 <template>
   <svg :height="height" :width="width">
+
+      <linearGradient id="myGradient" gradientUnits="userSpaceOnUse" x1="0" y1="450" x2="0" y2="169.95923632052333"><stop offset="0%" stop-color="#F2994B"></stop><stop offset="15%" stop-color="#F2994B"></stop><stop offset="30%" stop-color="#F28749"></stop><stop offset="70%" stop-color="#F28749"></stop><stop offset="90%" stop-color="#D9483B"></stop><stop offset="100%" stop-color="#D9483B"></stop></linearGradient>
+
           <path
     :d="jobsArea"
     :data="jobsData"
-    fill="orange"
+    fill="url(#myGradient)"
     stroke="orange"
     stroke-width="3"
 
     />
-    <XAxis 
+    <!-- <XAxis 
       :xScale="xScale" 
       :yTranslate="height - margin"
-    />
+    /> -->
     <YAxis 
       :yScale="yScale"
       :xTranslate="margin"
@@ -22,7 +25,7 @@
 <script>
 
 import * as d3 from 'd3';
-import XAxis from './timeline-XAxis.vue';
+// import XAxis from './timeline-XAxis.vue';
 import YAxis from './timeline-YAxis.vue';
 
 export default {
@@ -41,7 +44,7 @@ export default {
       });
   },
   components: {
-    XAxis,
+    // XAxis,
     YAxis
   },
 computed: {
@@ -58,7 +61,8 @@ computed: {
       jobsArea() {
           const areaGenerator = d3.area()
             .x(d => this.xScale(d.year))
-            .y(d => this.yScale(d.jobs))
+            .y1(d => this.yScale(d.jobs))
+            .y0(this.yScale(0))
             // .curve(d3.curveMonotoneX)
             console.log(this.filteredDate)
           return areaGenerator(this.filteredDate)

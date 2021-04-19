@@ -18,7 +18,8 @@
 
     </el-card>
     <AreaChart/>
-  
+  <el-divider></el-divider>
+
 <!--        <el-card>-->
 <!--<h2>Pop ups here</h2>-->
 <!--    </el-card>-->
@@ -29,7 +30,6 @@
 
 <script>
 import AreaChart from './components/AreaChart.vue';
-// import * as d3 from "d3";
 import TimelineBar from './components/timeline-bar.vue';
 import Timeline from './components/timeline-chart.vue';
 
@@ -67,7 +67,7 @@ export default {
   body {
     padding: 0;
     margin: 0;
-    background-color: black;
+    /* background-color: black; */
   }
   .App {
     display: flex;
