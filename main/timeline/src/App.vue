@@ -17,6 +17,8 @@
 <TimelineBar />
 
     </el-card>
+    <AreaChart/>
+  
 <!--        <el-card>-->
 <!--<h2>Pop ups here</h2>-->
 <!--    </el-card>-->
@@ -26,6 +28,7 @@
 </template>
 
 <script>
+import AreaChart from './components/AreaChart.vue';
 // import * as d3 from "d3";
 import TimelineBar from './components/timeline-bar.vue';
 import Timeline from './components/timeline-chart.vue';
@@ -40,7 +43,8 @@ export default {
   },
   components: {
     TimelineBar,
-    Timeline
+    Timeline,
+    AreaChart
   },
   data() {
     return {
