@@ -1,16 +1,21 @@
 <template>
   <svg :height="height" :width="width">
 
-      <linearGradient id="myGradient" gradientUnits="userSpaceOnUse" x1="0" y1="450" x2="0" y2="169.95923632052333"><stop offset="0%" stop-color="#F2994B"></stop><stop offset="15%" stop-color="#F2994B"></stop><stop offset="30%" stop-color="#F28749"></stop><stop offset="70%" stop-color="#F28749"></stop><stop offset="90%" stop-color="#D9483B"></stop><stop offset="100%" stop-color="#D9483B"></stop></linearGradient>
+      <linearGradient id="myGradient" gradientUnits="userSpaceOnUse" x1="10" y1="350" x2="0" y2="150"><stop offset="0%" stop-color="#F2994B" stop-opacity = "80%"></stop><stop offset="15%" stop-color="#F2994B" ></stop><stop offset="30%" stop-color="#F28749"></stop><stop offset="70%" stop-color="#F28749"></stop><stop offset="95%" stop-color="#D9483B"></stop><stop offset="100%" stop-color="#BF2431" ></stop></linearGradient>
 
           <path
     :d="jobsArea"
     :data="jobsData"
     fill="url(#myGradient)"
-    stroke="orange"
-    stroke-width="3"
+    stroke="#BF2431"
+    stroke-width="2"
 
     />
+    <!-- :transform="translate(0,yScale(jobsData[0].jobs))" -->
+    <!-- <text 
+    :transform ="translate(0,yScale(jobsData[0].jobs))"
+    >{{jobsData[0].jobs}}</text> -->
+
     <!-- <XAxis 
       :xScale="xScale" 
       :yTranslate="height - margin"

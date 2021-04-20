@@ -6,6 +6,7 @@
   <!-- <div class="header"> -->
     <!--<h2>Chart of COVID19 cases</h2>-->
   <!-- </div> -->
+<el-image src="cases-pre.svg" alt=""></el-image>
 
   <Timeline />
   
@@ -17,6 +18,8 @@
 <TimelineBar />
 
     </el-card>
+    <el-image src="emp-pre.svg" alt=""></el-image>
+
     <AreaChart/>
   <el-divider></el-divider>
 
@@ -67,7 +70,7 @@ export default {
   body {
     padding: 0;
     margin: 0;
-    /* background-color: black; */
+    background-color: black;
   }
   .App {
     display: flex;
