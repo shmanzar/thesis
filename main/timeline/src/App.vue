@@ -3,26 +3,35 @@
 <el-image src="hero-title.svg" alt=""></el-image>
 <el-image src="hero-subtitle.svg" alt=""></el-image>
 
-  <!-- <div class="header"> -->
-    <!--<h2>Chart of COVID19 cases</h2>-->
-  <!-- </div> -->
-<el-image src="cases-pre.svg" alt=""></el-image>
+<el-container>
+  <el-header>
+    <el-image src="hero-subtitle.svg" alt=""></el-image>
+
+  </el-header>
+  <el-main>
+    <el-image src="cases-pre.svg" alt=""></el-image>
+
 
   <Timeline />
   
   <el-divider></el-divider>
-<!--  <div class="maps">-->
 
-    <el-card>
-      <!-- <h2>timeline here</h2> -->
-<TimelineBar />
-
-    </el-card>
-    <el-image src="emp-pre.svg" alt=""></el-image>
+    <el-image src="emp-post.svg" alt=""></el-image>
 
     <AreaChart/>
   <el-divider></el-divider>
+  </el-main>
+</el-container>
+  <!-- <div class="header"> -->
+    <!--<h2>Chart of COVID19 cases</h2>-->
+  <!-- </div> -->
 
+<!--  <div class="maps">-->
+
+  <!-- <el-card>
+<TimelineBar />
+
+    </el-card> -->
 <!--        <el-card>-->
 <!--<h2>Pop ups here</h2>-->
 <!--    </el-card>-->
@@ -33,7 +42,7 @@
 
 <script>
 import AreaChart from './components/AreaChart.vue';
-import TimelineBar from './components/timeline-bar.vue';
+// import TimelineBar from './components/timeline-bar.vue';
 import Timeline from './components/timeline-chart.vue';
 
 
@@ -45,7 +54,7 @@ export default {
 
   },
   components: {
-    TimelineBar,
+    // TimelineBar,
     Timeline,
     AreaChart
   },

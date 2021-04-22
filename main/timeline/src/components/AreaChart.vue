@@ -74,7 +74,7 @@ computed: {
       },
       filteredDate() {
         const from = Date.parse('01 Jan 1990')
-        const until = Date.parse('01 Mar 2020')
+        const until = Date.parse('01 Mar 2021')
         return this.jobsData.filter(function(entry) {
           const time = entry.year
               return time >= from && time <= until
