@@ -1,5 +1,5 @@
 <template>
-  <svg :height="height" :width="width">
+  <svg :viewBox="`0 0 ${width} ${height}`">
 
       <linearGradient id="myGradient" gradientUnits="userSpaceOnUse" x1="10" y1="350" x2="0" y2="150"><stop offset="0%" stop-color="#F2994B" stop-opacity = "80%"></stop><stop offset="15%" stop-color="#F2994B" ></stop><stop offset="30%" stop-color="#F28749"></stop><stop offset="70%" stop-color="#F28749"></stop><stop offset="95%" stop-color="#D9483B"></stop><stop offset="100%" stop-color="#BF2431" ></stop></linearGradient>
 

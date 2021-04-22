@@ -1,11 +1,12 @@
 <template>
-   <svg :height="height" :width="width">
+   <svg  :viewBox="`0 0 ${width} ${height}`">
           <path
     :d="case_countLine"
     :data="casesData"
     fill="none"
     stroke="orange"
     stroke-width="3"
+    
 
     />
     <!-- <XAxis 
