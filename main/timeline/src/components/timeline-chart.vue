@@ -2,7 +2,7 @@
    <svg  :viewBox="`0 0 ${width} ${height}`">
           <path
     :d="case_countLine"
-    :data="casesData"
+    :data="filterData"
     fill="none"
     stroke="orange"
     stroke-width="3"
@@ -26,18 +26,21 @@ import * as d3 from 'd3';
 import YAxis from './timeline-YAxis.vue';
 export default {
   name: 'Timeline',
+   props:{
+        filterData: Array
+      },
   created() {
-    d3.csv('./cases-by-day.csv')
-      .then(data => {
-        data.forEach(d => {
-          d.cases = +d["CASE_COUNT"]
-          d.year = new Date(d.date_of_interest);
-        })
-        console.log(data);
-        this.casesData = data;
-        console.log(this.casesData)
+    // d3.csv('./cases-by-day.csv')
+    //   .then(data => {
+    //     data.forEach(d => {
+    //       d.cases = +d["CASE_COUNT"]
+    //       d.year = new Date(d.date_of_interest);
+    //     })
+    //     console.log(data);
+    //     this.casesData = data;
+    //     console.log(this.casesData)
 
-      });
+    //   });
   },
   components: {
     // LabeledPoint,
@@ -48,12 +51,12 @@ export default {
   computed: {
       xScale() {
           return d3.scaleTime()
-            .domain(d3.extent(this.filteredDate, d => d.year))
+            .domain(d3.extent(this.filterData, d => d.year))
             .range([this.margin, this.width - this.margin])
       },
       yScale() {
           return d3.scaleLinear()
-            .domain(d3.extent(this.filteredDate, d => d.cases))
+            .domain(d3.extent(this.filterData, d => d.cases))
             .range([this.height - this.margin, this.margin])
       }, 
       case_countLine() {
@@ -61,24 +64,24 @@ export default {
             .x(d => this.xScale(d.year))
             .y(d => this.yScale(d.cases))
             .curve(d3.curveMonotoneX)
-            console.log(this.filteredDate)
-          return lineGenerator(this.filteredDate)
+            console.log(this.filterData)
+          return lineGenerator(this.filterData)
       },
-      filteredDate() {
-        const from = Date.parse('29 Feb 2020')
-        const until = Date.parse('19 Mar 2020')
-        return this.casesData.filter(function(entry) {
-          const time = entry.year
-              return time >= from && time <= until
-        })
-      }
+      // filteredDate() {
+      //   const from = Date.parse('29 Feb 2020')
+      //   const until = Date.parse('19 Mar 2020')
+      //   return this.casesData.filter(function(entry) {
+      //     const time = entry.year
+      //         return time >= from && time <= until
+      //   })
+      // }
   },
   data() {
     return {
       margin: 50,
       width: 1400,
       height: 400,
-      casesData: [],
+      // casesData: [],
     }
   }
 }

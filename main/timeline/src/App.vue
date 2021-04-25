@@ -12,13 +12,16 @@
     <el-image src="cases-pre.svg" alt=""></el-image>
 
 
-  <Timeline />
+  <Timeline :filterData="filterCasesPre" />
+  <Timeline :filterData="filterCasesPost" />
   
   <el-divider></el-divider>
 
     <el-image src="emp-post.svg" alt=""></el-image>
 
-    <AreaChart/>
+    <AreaChart :filterData="filterJobsPre"/>
+    <AreaChart :filterData="filterJobsPost"/>
+
   <el-divider></el-divider>
   </el-main>
 </el-container>
@@ -41,6 +44,8 @@
 </template>
 
 <script>
+import * as d3 from 'd3';
+
 import AreaChart from './components/AreaChart.vue';
 // import TimelineBar from './components/timeline-bar.vue';
 import Timeline from './components/timeline-chart.vue';
@@ -51,8 +56,30 @@ import Timeline from './components/timeline-chart.vue';
 export default {
   name: 'App',
   created() {
+        d3.csv('./fred_nyc_fs_empl.csv')
+      .then(data => {
+        data.forEach(d => {
+          d.jobs = +d["fs_emp"]
+          d.year = new Date(d['DATE']);
+        })
+        console.log(data);
+        this.jobsData = data;
+        console.log(this.jobsData)
 
-  },
+         d3.csv('./cases-by-day.csv')
+      .then(data => {
+        data.forEach(d => {
+          d.cases = +d["CASE_COUNT"]
+          d.year = new Date(d.date_of_interest);
+        })
+        console.log(data);
+        this.casesData = data;
+        console.log(this.casesData)
+
+      });
+
+
+  })},
   components: {
     // TimelineBar,
     Timeline,
@@ -60,6 +87,9 @@ export default {
   },
   data() {
     return {
+      jobsData: [],
+      casesData: [],
+
 
     }
   },
@@ -67,8 +97,41 @@ export default {
  
   },
   computed: {
+          filterJobsPre() {
+        const from = Date.parse('01 Jan 1990')
+        const until = Date.parse('01 Mar 2020')
+        return this.jobsData.filter(function(entry) {
+          const time = entry.year
+              return time >= from && time <= until
+        })
 
   },
+            filterJobsPost() {
+        const from = Date.parse('01 Jan 1990')
+        const until = Date.parse('01 Mar 2021')
+        return this.jobsData.filter(function(entry) {
+          const time = entry.year
+              return time >= from && time <= until
+        })
+
+  },
+        filterCasesPre() {
+        const from = Date.parse('29 Feb 2020')
+        const until = Date.parse('19 Mar 2020')
+        return this.casesData.filter(function(entry) {
+          const time = entry.year
+              return time >= from && time <= until
+        })
+      },
+              filterCasesPost() {
+        const from = Date.parse('29 Feb 2020')
+        const until = Date.parse('30 Mar 2021')
+        return this.casesData.filter(function(entry) {
+          const time = entry.year
+              return time >= from && time <= until
+        })
+      }
+      },
   methods: {
 
   }

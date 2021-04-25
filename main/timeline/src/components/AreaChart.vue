@@ -5,7 +5,7 @@
 
           <path
     :d="jobsArea"
-    :data="jobsData"
+    :data="filterData"
     fill="url(#myGradient)"
     stroke="#BF2431"
     stroke-width="2"
@@ -35,18 +35,11 @@ import YAxis from './timeline-YAxis.vue';
 
 export default {
       name: 'AreaChart',
+      props:{
+        filterData: Array
+      },
       created() {
-    d3.csv('./fred_nyc_fs_empl.csv')
-      .then(data => {
-        data.forEach(d => {
-          d.jobs = +d["fs_emp"]
-          d.year = new Date(d['DATE']);
-        })
-        console.log(data);
-        this.jobsData = data;
-        console.log(this.jobsData)
 
-      });
   },
   components: {
     // XAxis,
@@ -55,12 +48,12 @@ export default {
 computed: {
       xScale() {
           return d3.scaleTime()
-            .domain(d3.extent(this.filteredDate, d => d.year))
+            .domain(d3.extent(this.filterData, d => d.year))
             .range([this.margin, this.width - this.margin])
       },
       yScale() {
           return d3.scaleLinear()
-            .domain(d3.extent(this.filteredDate, d => d.jobs))
+            .domain(d3.extent(this.filterData, d => d.jobs))
             .range([this.height - this.margin, this.margin])
       }, 
       jobsArea() {
@@ -69,24 +62,16 @@ computed: {
             .y1(d => this.yScale(d.jobs))
             .y0(this.yScale(0))
             // .curve(d3.curveMonotoneX)
-            console.log(this.filteredDate)
-          return areaGenerator(this.filteredDate)
+            console.log(this.filterData)
+          return areaGenerator(this.filterData)
       },
-      filteredDate() {
-        const from = Date.parse('01 Jan 1990')
-        const until = Date.parse('01 Mar 2021')
-        return this.jobsData.filter(function(entry) {
-          const time = entry.year
-              return time >= from && time <= until
-        })
-      }
+
   },
   data() {
     return {
       margin: 50,
       width: 1400,
       height: 400,
-      jobsData: [],
     }
   }
 }
