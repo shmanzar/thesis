@@ -16,6 +16,14 @@
   <Timeline :filterData="filterCasesPost" />
   
   <el-divider></el-divider>
+   <!-- <div class="block">
+    <span class="demonstration">Default</span>
+    <el-date-picker
+      v-model="cases_date_post_new"
+      type="date"
+      placeholder="Pick a day">
+    </el-date-picker>
+  </div> -->
 
     <el-image src="emp-post.svg" alt=""></el-image>
 
@@ -89,7 +97,12 @@ export default {
     return {
       jobsData: [],
       casesData: [],
-
+      jobs_date_pre: Date.parse('01 Jan 1990'),
+      jobs_date_post: Date.parse('01 Mar 2020'),
+      jobs_date_post_new: Date.parse('01 Mar 2021'),
+      cases_date_pre: Date.parse('29 Feb 2020'),
+      cases_date_post: Date.parse('19 Mar 2020'),
+      cases_date_post_new: Date.parse('30 Mar 2021')
 
     }
   },
@@ -98,8 +111,8 @@ export default {
   },
   computed: {
           filterJobsPre() {
-        const from = Date.parse('01 Jan 1990')
-        const until = Date.parse('01 Mar 2020')
+        const from = this.jobs_date_pre
+        const until = this.jobs_date_post
         return this.jobsData.filter(function(entry) {
           const time = entry.year
               return time >= from && time <= until
@@ -107,8 +120,8 @@ export default {
 
   },
             filterJobsPost() {
-        const from = Date.parse('01 Jan 1990')
-        const until = Date.parse('01 Mar 2021')
+        const from = this.jobs_date_pre
+        const until = this.jobs_date_post_new
         return this.jobsData.filter(function(entry) {
           const time = entry.year
               return time >= from && time <= until
@@ -116,16 +129,16 @@ export default {
 
   },
         filterCasesPre() {
-        const from = Date.parse('29 Feb 2020')
-        const until = Date.parse('19 Mar 2020')
+        const from = this.cases_date_pre
+        const until = this.cases_date_post
         return this.casesData.filter(function(entry) {
           const time = entry.year
               return time >= from && time <= until
         })
       },
               filterCasesPost() {
-        const from = Date.parse('29 Feb 2020')
-        const until = Date.parse('30 Mar 2021')
+        const from = this.cases_date_pre
+        const until = this.cases_date_post_new
         return this.casesData.filter(function(entry) {
           const time = entry.year
               return time >= from && time <= until
