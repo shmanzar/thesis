@@ -9,7 +9,7 @@
             </el-header>
             <el-main>
                 <el-image src="cases-pre.svg" alt=""></el-image>
-                <p>
+                <p class="textbox">
                     The hospitality industry has always been a critical
                     component of New York City’s economic and cultural
                     significance, employing hundreds of thousands, attracting
@@ -22,7 +22,7 @@
                     predominantly made up of minority populations with relative
                     lower average wages compared to the rest of the city.
                 </p>
-                <p>
+                <p class="textbox">
                     Similarly, labour employment in the restaurant industry also
                     grew at double the rate of total private sector employment.
                     In 2019, the city’s restaurant industry employed 317,800
@@ -43,7 +43,7 @@
   </div> -->
 
                 <el-image src="emp-post.svg" alt=""></el-image>
-                <p>
+                <p class="textbox">
                     As the lockdown began, New York City’s restaurant industry
                     faced an unprecedented near-decimation in the daily
                     patronage it experienced. Fear of the virus, but also
@@ -65,7 +65,7 @@
                 <!-- <Timeline :filterData="filterCasesPost" /> -->
 
                 <el-divider></el-divider>
-                <p>
+                <p class="textbox">
                     However, only once the lockdown entered its first month did
                     a clearer picture of the fallout arise. The industry faced a
                     crisis unlike any other in its history. Restaurants all
@@ -77,7 +77,7 @@
                 </p>
                 <AreaChart :filterData="filterJobsPost" />
                 <el-divider></el-divider>
-                <p>
+                <p class="textbox">
                     Hispanics are the largest share of restaurant labour at 44
                     percent and a higher share than among all workers. Asians
                     also represented a higher share of restaurant workers than
@@ -239,16 +239,39 @@ body {
     width: 400px;
 }
 p {
-    margin: 7rem;
-    padding: 1rem;
-    line-height: 1.5625em;
+    /* margin: 7rem; */
+    /* padding: 1rem; */
+    /* line-height: 1.5625em; */
+    line-height: 1.6;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    /* letter-spacing: -0.025rem; */
     /* font-size: 18px; */
     font-size: 1.155rem;
+    /* font-size: 1.7em; */
+    /* margin: 1rem 35rem 8rem 5rem; */
     background-color: rgba(126, 132, 138, 0.205);
     border-radius: 10px;
     font-family: agenda, sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.textbox {
+    width: 92.5%;
+    max-width: 500px;
+    padding: 1.25rem 1.75rem 1.5rem 1.75rem;
+    margin-left: 5rem;
+    /* margin-bottom: 60rem; */
+    /* z-index: 999; */
+    border-radius: 10px;
+    /* opacity: 0.925; */
+    -webkit-filter: drop-shadow(0 2px 4px rgba(59, 59, 61, 0.4));
+    filter: drop-shadow(0 2px 4px rgba(59, 59, 61, 0.4));
+    background-color: rgba(126, 132, 138, 0.205);
+    color: #fff;
+    border: 1px solid hsla(0, 0%, 43.9%, 0.2);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 </style>
 
