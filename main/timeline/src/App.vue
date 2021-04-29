@@ -65,6 +65,25 @@
                 <!-- <Timeline :filterData="filterCasesPost" /> -->
 
                 <el-divider></el-divider>
+                <p>
+                    However, only once the lockdown entered its first month did
+                    a clearer picture of the fallout arise. The industry faced a
+                    crisis unlike any other in its history. Restaurants all
+                    across the city shutdown, either temporarily or
+                    indefinitely, and laid off the staff. Employment in the
+                    restaurant industry had reached a new high in the end of
+                    March 2020 at ~320,000 sharply declined to ~87,500 in April
+                    2020 - wiping out at least 30 years of growth in jobs.
+                </p>
+                <AreaChart :filterData="filterJobsPost" />
+                <el-divider></el-divider>
+                <p>
+                    Hispanics are the largest share of restaurant labour at 44
+                    percent and a higher share than among all workers. Asians
+                    also represented a higher share of restaurant workers than
+                    among all occupations citywide, in contrast to either Whites
+                    or Blacks or African Americans
+                </p>
                 <!-- <StackedBar /> -->
             </el-main>
         </el-container>
@@ -193,6 +212,8 @@ export default {
 </script>
 
 <style>
+@import url("https://use.typekit.net/kgv5xxb.css");
+
 body {
     padding: 0;
     margin: 1.5em;
@@ -220,10 +241,14 @@ body {
 p {
     margin: 7rem;
     padding: 1rem;
-    line-height: 1.5em;
-    font-size: 18px;
+    line-height: 1.5625em;
+    /* font-size: 18px; */
+    font-size: 1.155rem;
     background-color: rgba(126, 132, 138, 0.205);
     border-radius: 10px;
+    font-family: agenda, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 </style>
 
