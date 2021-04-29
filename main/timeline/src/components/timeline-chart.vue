@@ -4,7 +4,7 @@
     :d="case_countLine"
     :data="filterData"
     fill="none"
-    stroke="orange"
+    stroke="#FF851B"
     stroke-width="3"
     
 
@@ -64,7 +64,7 @@ export default {
             .x(d => this.xScale(d.year))
             .y(d => this.yScale(d.cases))
             .curve(d3.curveMonotoneX)
-            console.log(this.filterData)
+            // console.log(this.filterData)
           return lineGenerator(this.filterData)
       },
       // filteredDate() {
