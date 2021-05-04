@@ -30,8 +30,8 @@ export default {
             data.forEach((d) => {
                 d.emp_type = d["emp"];
                 d.Hispanic = +d.Hispanic;
-                d.White = +d.White;
                 d.Asian = +d.Asian;
+                d.White = +d.White;
                 d.African_American = +d.African_American;
                 d.Other = +d.Other;
             });

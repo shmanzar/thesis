@@ -30,9 +30,9 @@
                     lower average wages compared to the rest of the city.
                 </p>
                 <p class="textbox">
-                    Similarly, labour employment in the restaurant industry also
-                    grew at double the rate of total private sector employment.
-                    In 2019, the city’s restaurant industry employed
+                    Labour employment in the restaurant industry grew at double
+                    the rate of total private sector employment. In 2019, the
+                    city’s restaurant industry employed
                     <span style="font-weight: bold; color: #ff4136"
                         >317,800</span
                     >
@@ -46,7 +46,7 @@
                 <Timeline :filterData="filterJobsPre" />
                 <!-- <AreaChart :filterData="filterJobsPost" /> -->
 
-                <el-divider></el-divider>
+                <!-- <el-divider></el-divider> -->
 
                 <el-image src="emp-post.svg" alt=""></el-image>
                 <p class="textbox">
@@ -70,7 +70,7 @@
                 <Timeline :filterData="filterCasesPre" />
                 <!-- <Timeline :filterData="filterCasesPost" /> -->
 
-                <el-divider></el-divider>
+                <!-- <el-divider></el-divider> -->
                 <p class="textbox">
                     However, only once the lockdown entered its first month did
                     a clearer picture of the fallout arise. The industry faced a
@@ -90,7 +90,15 @@
                     jobs.
                 </p>
                 <Timeline :filterData="filterJobsPost" />
-                <el-divider></el-divider>
+                <p class="textbox">
+                    The lockdowns triggered the
+                    <span style="font-weight: bold; color: #de3131"
+                        >largest contraction of economic activity
+                    </span>
+                    for the restaurant industry in its history
+                </p>
+                <!-- <el-divider></el-divider> -->
+                <ImpactBAN />
                 <div class="emp-box">
                     <div class="text">
                         <p class="textbox">
@@ -143,6 +151,7 @@ import * as d3 from "d3";
 // import TimelineBar from './components/timeline-bar.vue';
 import Timeline from "./components/timeline-chart.vue";
 import StackedBar from "./components/StackedBar.vue";
+import ImpactBAN from "./components/ImpactBAN.vue";
 
 export default {
     name: "App",
@@ -188,6 +197,7 @@ export default {
         Timeline,
         // AreaChart,
         StackedBar,
+        ImpactBAN,
     },
     data() {
         return {
