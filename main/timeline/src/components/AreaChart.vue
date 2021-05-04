@@ -21,7 +21,7 @@
             :data="filterData"
             fill="url(#myGradient)"
             stroke="#FF4136"
-            stroke-width="2"
+            stroke-width="0"
         />
         <!-- :transform="translate(0,yScale(jobsData[0].jobs))" -->
         <!-- <text 

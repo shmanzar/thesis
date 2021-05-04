@@ -13,10 +13,17 @@
                     The hospitality industry has always been a critical
                     component of New York City’s economic and cultural
                     significance, employing hundreds of thousands, attracting
-                    millions of visitors who spend around $46 billion annually,
-                    and contributing to its image as a cultural powerhouse. The
-                    New York City restaurant industry accounted for about 1 in
-                    12 private sector jobs and establishments citywide in 2019.
+                    millions of visitors who spend around
+                    <span style="font-weight: bold; color: #f2994b"
+                        >$46 billion</span
+                    >
+                    annually, and contributing to its image as a cultural
+                    powerhouse. The New York City restaurant industry accounted
+                    for about
+                    <span style="font-weight: bold; color: #f2994b"
+                        >1 in 12</span
+                    >
+                    private sector jobs and establishments citywide in 2019.
                     Most of the labour which the industry relies upon is largely
                     undocumented and therefore, unprotected. This labour is also
                     predominantly made up of minority populations with relative
@@ -25,11 +32,18 @@
                 <p class="textbox">
                     Similarly, labour employment in the restaurant industry also
                     grew at double the rate of total private sector employment.
-                    In 2019, the city’s restaurant industry employed 317,800
-                    jobs - relative to only a decade ago, when it had 120,000
+                    In 2019, the city’s restaurant industry employed
+                    <span style="font-weight: bold; color: #f2994b"
+                        >317,800</span
+                    >
+                    jobs - relative to only a decade ago, when it had<span
+                        style="font-weight: bold; color: #f2994b"
+                    >
+                        120,000</span
+                    >
                     jobs.
                 </p>
-                <AreaChart :filterData="filterJobsPre" />
+                <Timeline :filterData="filterJobsPre" />
                 <!-- <AreaChart :filterData="filterJobsPost" /> -->
 
                 <el-divider></el-divider>
@@ -64,20 +78,33 @@
                     across the city shutdown, either temporarily or
                     indefinitely, and laid off the staff. Employment in the
                     restaurant industry had reached a new high in the end of
-                    March 2020 at ~320,000 sharply declined to ~87,500 in April
-                    2020 - wiping out at least 30 years of growth in jobs.
+                    March 2020 at
+                    <span style="font-weight: bold; color: #f2994b"
+                        >~320,000</span
+                    >
+                    sharply declined to
+                    <span style="font-weight: bold; color: #ff4136"
+                        >~87,500</span
+                    >
+                    in April 2020 - wiping out at least 30 years of growth in
+                    jobs.
                 </p>
-                <AreaChart :filterData="filterJobsPost" />
+                <Timeline :filterData="filterJobsPost" />
                 <el-divider></el-divider>
                 <div class="emp-box">
                     <div class="text">
                         <p class="textbox">
-                            Hispanics are the largest share of restaurant labour
-                            at 44 percent and a higher share than among all
-                            workers. Asians also represented a higher share of
-                            restaurant workers than among all occupations
-                            citywide, in contrast to either Whites or Blacks or
-                            African Americans
+                            <span style="font-weight: bold; color: #f2994b"
+                                >Hispanics</span
+                            >
+                            are the largest share of restaurant labour at
+                            <span style="font-weight: bold; color: #f2994b"
+                                >44%</span
+                            >
+                            and a higher share than among all workers. Asians
+                            also represented a higher share of restaurant
+                            workers than among all occupations citywide, in
+                            contrast to either Whites or African Americans
                         </p>
                     </div>
                     <div class="chart"><StackedBar /></div>
@@ -112,7 +139,7 @@
 <script>
 import * as d3 from "d3";
 
-import AreaChart from "./components/AreaChart.vue";
+// import AreaChart from "./components/AreaChart.vue";
 // import TimelineBar from './components/timeline-bar.vue';
 import Timeline from "./components/timeline-chart.vue";
 import StackedBar from "./components/StackedBar.vue";
@@ -122,7 +149,7 @@ export default {
     created() {
         d3.csv("./fred_nyc_fs_empl.csv").then((data) => {
             data.forEach((d) => {
-                d.jobs = +d["fs_emp"];
+                d.cases = +d["fs_emp"];
                 d.year = new Date(d["DATE"]);
             });
             // console.log(data);
@@ -159,7 +186,7 @@ export default {
     components: {
         // TimelineBar,
         Timeline,
-        AreaChart,
+        // AreaChart,
         StackedBar,
     },
     data() {
@@ -170,8 +197,8 @@ export default {
             // subgroups: [],
             // groups: [],
             jobs_date_pre: Date.parse("01 Jan 1990"),
-            jobs_date_post: Date.parse("01 Mar 2020"),
-            jobs_date_post_new: Date.parse("01 Mar 2021"),
+            jobs_date_post: Date.parse("01 Jan 2020"),
+            jobs_date_post_new: Date.parse("1/4/20"),
             cases_date_pre: Date.parse("29 Feb 2020"),
             cases_date_post: Date.parse("19 Mar 2020"),
             cases_date_post_new: Date.parse("30 Mar 2021"),
@@ -222,7 +249,7 @@ export default {
 body {
     padding: 0;
     margin: 1.5em;
-    /* background-color: black; */
+    background-color: black;
     font-family: "Helvetica Neue";
     color: floralwhite;
 }
@@ -281,9 +308,9 @@ p {
 
 .emp-box {
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
+    gap: 0px 150px;
     grid-template-areas:
         "text chart"
         ". chart";
