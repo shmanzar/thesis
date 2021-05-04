@@ -33,14 +33,6 @@
                 <!-- <AreaChart :filterData="filterJobsPost" /> -->
 
                 <el-divider></el-divider>
-                <!-- <div class="block">
-    <span class="demonstration">Default</span>
-    <el-date-picker
-      v-model="cases_date_post_new"
-      type="date"
-      placeholder="Pick a day">
-    </el-date-picker>
-  </div> -->
 
                 <el-image src="emp-post.svg" alt=""></el-image>
                 <p class="textbox">
@@ -77,14 +69,19 @@
                 </p>
                 <AreaChart :filterData="filterJobsPost" />
                 <el-divider></el-divider>
-                <p class="textbox">
-                    Hispanics are the largest share of restaurant labour at 44
-                    percent and a higher share than among all workers. Asians
-                    also represented a higher share of restaurant workers than
-                    among all occupations citywide, in contrast to either Whites
-                    or Blacks or African Americans
-                </p>
-                <!-- <StackedBar /> -->
+                <div class="emp-box">
+                    <div class="text">
+                        <p class="textbox">
+                            Hispanics are the largest share of restaurant labour
+                            at 44 percent and a higher share than among all
+                            workers. Asians also represented a higher share of
+                            restaurant workers than among all occupations
+                            citywide, in contrast to either Whites or Blacks or
+                            African Americans
+                        </p>
+                    </div>
+                    <div class="chart"><StackedBar /></div>
+                </div>
             </el-main>
         </el-container>
         <!-- <div class="header"> -->
@@ -101,6 +98,14 @@
         <!--<h2>Pop ups here</h2>-->
         <!--    </el-card>-->
         <!--  </div>-->
+        <!-- <div class="block">
+    <span class="demonstration">Default</span>
+    <el-date-picker
+      v-model="cases_date_post_new"
+      type="date"
+      placeholder="Pick a day">
+    </el-date-picker>
+  </div> -->
     </div>
 </template>
 
@@ -110,7 +115,7 @@ import * as d3 from "d3";
 import AreaChart from "./components/AreaChart.vue";
 // import TimelineBar from './components/timeline-bar.vue';
 import Timeline from "./components/timeline-chart.vue";
-// import StackedBar from "./components/StackedBar.vue";
+import StackedBar from "./components/StackedBar.vue";
 
 export default {
     name: "App",
@@ -155,7 +160,7 @@ export default {
         // TimelineBar,
         Timeline,
         AreaChart,
-        // StackedBar,
+        StackedBar,
     },
     data() {
         return {
@@ -217,7 +222,7 @@ export default {
 body {
     padding: 0;
     margin: 1.5em;
-    background-color: black;
+    /* background-color: black; */
     font-family: "Helvetica Neue";
     color: floralwhite;
 }
@@ -272,6 +277,22 @@ p {
     border: 1px solid hsla(0, 0%, 43.9%, 0.2);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.emp-box {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "text chart"
+        ". chart";
+}
+.emp-box .chart {
+    grid-area: chart;
+}
+.emp-box .text {
+    grid-area: text;
 }
 </style>
 
