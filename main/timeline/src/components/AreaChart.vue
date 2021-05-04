@@ -8,8 +8,8 @@
             x2="0"
             y2="150"
         >
-            <stop offset="0%" stop-color="#F2994B" stop-opacity="100%"></stop>
-            <stop offset="15%" stop-color="#F2994B"></stop>
+            <stop offset="0%" stop-color="#EEE82C" stop-opacity="100%"></stop>
+            <stop offset="15%" stop-color="#EEE82C"></stop>
             <stop offset="30%" stop-color="#FF851B"></stop>
             <stop offset="70%" stop-color="#FF851B"></stop>
             <stop offset="95%" stop-color="#FF4136"></stop>

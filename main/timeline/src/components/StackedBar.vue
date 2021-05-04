@@ -16,7 +16,7 @@ export default {
         return {
             margin: 100,
             width: 500,
-            height: 600,
+            height: 500,
             empData: [],
             subgroups: [],
             groups: [],

@@ -33,7 +33,7 @@
                     Similarly, labour employment in the restaurant industry also
                     grew at double the rate of total private sector employment.
                     In 2019, the city’s restaurant industry employed
-                    <span style="font-weight: bold; color: #f2994b"
+                    <span style="font-weight: bold; color: #ff4136"
                         >317,800</span
                     >
                     jobs - relative to only a decade ago, when it had<span

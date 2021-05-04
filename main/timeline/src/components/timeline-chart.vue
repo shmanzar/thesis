@@ -1,10 +1,26 @@
 <template>
     <svg :viewBox="`0 0 ${width} ${height}`">
+        <linearGradient
+            id="myGradient"
+            gradientUnits="userSpaceOnUse"
+            x1="10"
+            y1="350"
+            x2="0"
+            y2="150"
+        >
+            <stop offset="0%" stop-color="#F2994B" stop-opacity="100%"></stop>
+            <stop offset="15%" stop-color="#F2994B"></stop>
+            <stop offset="30%" stop-color="#FF851B"></stop>
+            <stop offset="70%" stop-color="#FF851B"></stop>
+            <stop offset="95%" stop-color="#E3170A"></stop>
+            <stop offset="100%" stop-color="#E3170A"></stop>
+        </linearGradient>
+        <!-- stroke="#FF851B" -->
         <path
             :d="case_countLine"
             :data="filterData"
             fill="none"
-            stroke="#FF851B"
+            stroke="url(#myGradient)"
             stroke-width="2.2"
         />
         <!-- <XAxis 
