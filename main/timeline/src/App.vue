@@ -1,11 +1,11 @@
 <template>
     <div class="App">
-        <el-image src="hero-title.svg" alt=""></el-image>
-        <el-image src="hero-subtitle.svg" alt=""></el-image>
+        <el-image src="hero-title.png" alt=""></el-image>
+        <el-image src="hero-subtitle.png" alt=""></el-image>
 
         <el-container>
             <el-header>
-                <el-image src="hero-subtitle.svg" alt=""></el-image>
+                <el-image src="hero-subtitle.png" alt=""></el-image>
             </el-header>
             <el-main>
                 <el-image src="cases-pre.svg" alt=""></el-image>
