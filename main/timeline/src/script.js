@@ -1,3 +1,94 @@
+function workersPop() {
+  //   puma: 4012
+  // ​​​
+  // puma_codes: 4012
+  // ​​​
+  // puma_codes_clean: 4012
+  // ​​​
+  // rb_numbers: 519
+  // ​​​
+  // rb_share_business: 11.3
+  // ​​​
+  // restaurants_workers: 7777
+  // ​​​
+  // shape_area: 112243392.925
+  // ​​​
+  // shape_leng: 97227.1664095
+  // ​​​
+  // share_of_workforce: 12.2
+  // ​​​
+  // sow_asian: 60.8
+  // ​​​
+  // sow_black: 0
+  // ​​​
+  // sow_hispanic: 29.2
+  // ​​​
+  // sow_immigrants: 84.9
+  // ​​​
+  // sow_white: 9.3
+
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
+  console.log("test");
+  map.on("click", function(e) {
+    var nyc_rest = map.queryRenderedFeatures(e.point, {
+      layers: ["nyc-restaurant-immigrants", "median-inc"],
+    });
+    console.log(nyc_rest, e.lngLat);
+    new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(
+        "<h3>" +
+          nyc_rest[0].properties.neighbourhood +
+          "</h3><p> <b> Restaurant workers:</b> " +
+          nyc_rest[1].properties.share_of_workforce +
+          "</p><p><b>Immigrant workers:</b> " +
+          nyc_rest[1].properties.sow_immigrants +
+          "</p><p><b>Median household income: </b> " +
+          formatter.format(nyc_rest[0].properties.median_income) +
+          "</p>"
+      )
+      .addTo(map);
+  });
+}
+
+function hovertop() {
+  // Create a popup, but don't add it to the map yet.
+  var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
+
+  map.on("mouseenter", "closings-geo", function(e) {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = "pointer";
+    let coordinates = e.features[0].geometry.coordinates.slice();
+    let description = e.features[0].properties.name;
+    let neighborhood = e.features[0].properties.neighborhood;
+
+    // console.log(e, coordinates, description, neighborhood);
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup
+      .setLngLat(coordinates)
+      .setHTML("<h3>" + description + "</h3>" + neighborhood)
+      .addTo(map);
+  });
+  map.on("mouseleave", "closings-geo", function() {
+    map.getCanvas().style.cursor = "";
+    popup.remove();
+  });
+}
+
 var layerTypes = {
   fill: ["fill-opacity"],
   line: ["line-opacity"],
@@ -81,6 +172,7 @@ config.chapters.forEach((record, idx) => {
 
   if (record.description) {
     var story = document.createElement("p");
+    story.classList.add("textbox");
     story.innerHTML = record.description;
     chapter.appendChild(story);
   }
@@ -190,6 +282,7 @@ map.on("load", function() {
         chapter.onChapterEnter.forEach(setLayerOpacity);
       }
       if (chapter.callback) {
+        console.log(chapter.callback);
         window[chapter.callback]();
       }
       if (chapter.rotateAnimation) {

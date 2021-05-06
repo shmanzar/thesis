@@ -1,26 +1,3 @@
-window.clicktop = () => {
-  console.log("test");
-  map.on("click", function(e) {
-    var nyc_rest = map.queryRenderedFeatures(e.point, {
-      layers: ["nyc-restaurant-immigrants-heavy"],
-    });
-    console.log(nyc_rest, e.lngLat);
-    new mapboxgl.Popup()
-      .setLngLat(e.lngLat)
-      .setHTML(nyc_rest[0].properties.neighbourhood)
-      .addTo(map);
-  });
-};
-
-// window.clicktop = () => {
-//   map.on("mousemove", function (e) {
-//     var nyc_rest = map.queryRenderedFeatures(e.point, {
-//       layers: ["nyc-restaurant-immigrants-heavy"],
-//     });
-//     console.log(nyc_rest);
-//     console.log(nyc_rest[0].properties.neighbourhood);
-//   });
-// };
 var config = {
   style: "mapbox://styles/smanzar/cknpkn8mj3em717p128ryzthw", // Update this with your own too
   accessToken:
@@ -32,105 +9,106 @@ var config = {
   // byline: "Sherry Manzar",
   footer: "Source: ACS 2014-2019, NYC Open Data. Eater/Curbed, NYC DoH, ",
   chapters: [
-    {
-      id: "hero",
-      image: "/data/hero-title.svg",
-      location: {
-        center: [-73.962, 40.694],
-        zoom: 10.5,
-        pitch: 0,
-        bearing: 0,
-      },
-      mapAnimation: "easeTo",
-      onChapterEnter: [
-        {
-          layer: "nyc-restaurant-workers",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants-heavy",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-business",
-          opacity: 0,
-        },
-      ],
-      onChapterExit: [
-        {
-          layer: "nyc-restaurant-workers",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants-heavy",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-business",
-          opacity: 0,
-        },
-      ],
-    },
-    {
-      id: "hero",
-      image: "/data/hero-subtitle.svg",
-      location: {
-        center: [-73.962, 40.694],
-        zoom: 10.5,
-        pitch: 0,
-        bearing: 0,
-      },
-      mapAnimation: "easeTo",
-      onChapterEnter: [
-        {
-          layer: "nyc-restaurant-workers",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants-heavy",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-business",
-          opacity: 0,
-        },
-      ],
-      onChapterExit: [
-        {
-          layer: "nyc-restaurant-workers",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants-heavy",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-immigrants",
-          opacity: 0,
-        },
-        {
-          layer: "nyc-restaurant-business",
-          opacity: 0,
-        },
-      ],
-    },
+    // {
+    //   id: "hero",
+    //   image: "/data/hero-title.svg",
+    //   location: {
+    //     center: [-73.962, 40.694],
+    //     zoom: 10.5,
+    //     pitch: 0,
+    //     bearing: 0,
+    //   },
+    //   mapAnimation: "easeTo",
+    //   onChapterEnter: [
+    //     {
+    //       layer: "nyc-restaurant-workers",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants-heavy",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-business",
+    //       opacity: 0,
+    //     },
+    //   ],
+    //   onChapterExit: [
+    //     {
+    //       layer: "nyc-restaurant-workers",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants-heavy",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-business",
+    //       opacity: 0,
+    //     },
+    //   ],
+    // },
+    // {
+    //   id: "hero",
+    //   image: "/data/hero-subtitle.svg",
+    //   location: {
+    //     center: [-73.962, 40.694],
+    //     zoom: 10.5,
+    //     pitch: 0,
+    //     bearing: 0,
+    //   },
+    //   mapAnimation: "easeTo",
+    //   onChapterEnter: [
+    //     {
+    //       layer: "nyc-restaurant-workers",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants-heavy",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-business",
+    //       opacity: 0,
+    //     },
+    //   ],
+    //   onChapterExit: [
+    //     {
+    //       layer: "nyc-restaurant-workers",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants-heavy",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-immigrants",
+    //       opacity: 0,
+    //     },
+    //     {
+    //       layer: "nyc-restaurant-business",
+    //       opacity: 0,
+    //     },
+    //   ],
+    // },
     {
       id: "slug-style-id",
-      image: "/data/cases_pre.svg",
+      // image: "/data/cases_pre.svg",
       // title: "Residents who identify as working in the food service industry",
-      description: `"On average, 6% of the city's workforce works in the restaurant industry" `,
+      description: `On average, <span style="font-weight: bold; color: #3669d6"
+      >6%</span> of the city's workforce works in the restaurant industry`,
       location: {
         center: [-73.962, 40.694],
         zoom: 10.5,
@@ -177,7 +155,7 @@ var config = {
     },
     {
       id: "other-identifier",
-      title: "A majority of the workforce lives in Queens and Brooklyn",
+      // title: "A majority of the workforce lives in Queens and Brooklyn",
       alignment: "left",
       // image: "./path/to/image/source.png",
       // description: "A majority of the workforce lives in Queens and Brooklyn",
@@ -188,7 +166,7 @@ var config = {
         bearing: 0,
       },
       mapAnimation: "easeTo",
-      callback: "clicktop",
+      callback: "workersPop",
       onChapterEnter: [
         {
           layer: "nyc-restaurant-workers",
@@ -228,12 +206,12 @@ var config = {
     },
     {
       id: "bqe",
-      title: "Sunset Park",
+      // title: "Sunset Park",
       alignment: "left",
 
-      // image: "./path/to/image/source.png",
-      description:
-        ">12% of all Sunset Park's residents worked in the food service industry",
+      description: ` <span style='font-weight: bold; color: #3669d6'
+        >12%</span> of all Sunset Park's residents worked in the food service industry. Compare that to <span style='font-weight: bold; color: #83c6e3'
+        >3.5% </span>in neighbouring Park Slope`,
       location: {
         center: [-74.00773, 40.64842],
         zoom: 13,
@@ -280,12 +258,12 @@ var config = {
     },
     {
       id: "sp-inc",
-      title: "Sunset Park",
+      // title: "Sunset Park",
       alignment: "left",
 
       // image: "./path/to/image/source.png",
-      description:
-        "At the same time, most households have relatively low household income",
+      description: `At the same time, most households have relatively modest household income - around <span style='font-weight: bold; color: #bdfa92'
+        >$55,000 </span>`,
       location: {
         center: [-74.00773, 40.64842],
         zoom: 13,
@@ -339,12 +317,12 @@ var config = {
     },
     {
       id: "uws",
-      title: "Upper West Side",
+      // title: "Upper West Side",
       alignment: "left",
 
       // image: "./path/to/image/source.png",
-      description:
-        "While only less than 1.5% of those who lived in Upper West Side were restaurant workers",
+      description: `While only around <span style='font-weight: bold; color: #83c6e3'
+        >1% </span> of those who lived in Upper West Side were restaurant workers`,
       location: {
         center: [-73.97954, 40.78272],
         zoom: 13.82,
@@ -390,11 +368,12 @@ var config = {
     },
     {
       id: "uws-inc",
-      title: "Upper West Side",
+      // title: "Upper West Side",
       alignment: "left",
 
       // image: "./path/to/image/source.png",
-      description: "It is also inhabitated by relatively richer households",
+      description: `It is also inhabitated by relatively richer households - its median household income is <span style='font-weight: bold; color: #5cbb18'
+      >$117,000 </span>`,
       location: {
         center: [-73.97954, 40.78272],
         zoom: 13.82,
@@ -448,7 +427,7 @@ var config = {
     },
     {
       id: "jfk",
-      title: "Queens",
+      // title: "Queens",
       alignment: "left",
 
       // image: "./path/to/image/source.png",
@@ -499,7 +478,7 @@ var config = {
     },
     {
       id: "immigrants-queens",
-      title: "Queens",
+      // title: "Queens",
       alignment: "left",
 
       // image: "./path/to/image/source.png",
@@ -510,7 +489,7 @@ var config = {
         pitch: 0.0,
         bearing: 0.0,
       },
-      callback: "clicktop",
+      callback: "workersPop",
       onChapterEnter: [
         {
           layer: "nyc-restaurant-workers",
@@ -552,7 +531,7 @@ var config = {
       id: "closings-overall",
       alignment: "left",
 
-      title: "Many longtime institutions shutdown during the pandemic",
+      // title: "Many longtime institutions shutdown during the pandemic",
       // image: "./path/to/image/source.png",
       description:
         "A 'scrapping' activity mapped them from their 'obituaries' in the popular news media to this map",
@@ -562,7 +541,7 @@ var config = {
         pitch: 0.0,
         bearing: 0.0,
       },
-      callback: "clicktop",
+      callback: "hovertop",
       onChapterEnter: [
         {
           layer: "nyc-restaurant-workers",
@@ -610,11 +589,3 @@ var config = {
     },
   ],
 };
-
-// const clickPop = map.on("click", "nyc-restaurant-workers", function (e) {
-//   new mapboxgl.Popup()
-//     .setLngLat(e.lngLat)
-//     .setHTML(e.features[0].properties.name)
-//     .addTo(map);
-//   console.log(e.features[0]);
-// });
