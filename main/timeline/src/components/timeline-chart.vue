@@ -33,6 +33,7 @@
 
 <script>
 import * as d3 from "d3";
+
 // import XAxis from './timeline-XAxis.vue';
 import YAxis from "./timeline-YAxis.vue";
 export default {
@@ -77,9 +78,11 @@ export default {
                 .x((d) => this.xScale(d.year))
                 .y((d) => this.yScale(d.cases))
                 .curve(d3.curveMonotoneX);
+
             // console.log(this.filterData)
             return lineGenerator(this.filterData);
         },
+
         // filteredDate() {
         //   const from = Date.parse('29 Feb 2020')
         //   const until = Date.parse('19 Mar 2020')
@@ -89,12 +92,19 @@ export default {
         //   })
         // }
     },
+    mounted() {},
+    updated() {},
     data() {
         return {
             margin: 50,
             width: 1400,
             height: 400,
-            // casesData: [],
+            // tooltip: d3
+            //     .select("path")
+            //     .append("div")
+            //     .attr("class", "tooltip")
+            //     .attr("id", "tooltip")
+            //     .style("opacity", 0),
         };
     },
 };
