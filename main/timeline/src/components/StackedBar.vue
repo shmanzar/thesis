@@ -36,15 +36,15 @@ export default {
                 d.Other = +d.Other;
             });
             this.empData = data;
-            console.log(this.empData);
+            // console.log(this.empData);
             this.subgroups = this.empData.columns.slice(1);
             this.groups = d3.map(this.empData, function (d) {
                 return d.emp;
             });
             // console.log(this.groups);
 
-            console.log(this.subgroups);
-            console.log(this.groups);
+            // console.log(this.subgroups);
+            // console.log(this.groups);
 
             // const sbars = this.empData;
         });
@@ -93,7 +93,7 @@ export default {
         const vm = this;
         this.stackedData = d3.stack().keys(this.subgroups)(this.empData);
         const bubbleData = this.stackedData;
-        console.log(bubbleData);
+        // console.log(bubbleData);
 
         const svg = d3
             .select(".stacks")
@@ -135,7 +135,7 @@ export default {
                 var yPosition = d3.pointer(event)[1] - 25;
                 var emp_val =
                     event.target.__data__[1] - event.target.__data__[0];
-                console.log(event);
+                // console.log(event);
                 tooltip.attr(
                     "transform",
                     "translate(" + xPosition + "," + yPosition + ")"

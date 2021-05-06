@@ -2,6 +2,7 @@
     <el-carousel
         indicator-position="outside"
         height="700px"
+        width="1000px"
         trigger="click"
         arrow="hover"
     >
@@ -68,7 +69,7 @@ export default {
     /* line-height: 300px; */
     margin: 0;
     text-align: center;
-    background-color: black;
+    background-color: #121212;
 }
 /* .el-carousel__item:nth-child(2n) { */
 /* background-color: #99a9bf; */

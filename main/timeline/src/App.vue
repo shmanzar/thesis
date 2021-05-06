@@ -8,7 +8,7 @@
                 <!-- <el-image src="hero-subtitle.png" alt=""></el-image> -->
             </el-header>
             <el-main>
-                <el-image src="cases-pre.svg" alt=""></el-image>
+                <!-- <el-image src="cases-pre.svg" alt=""></el-image> -->
                 <p class="textbox">
                     The hospitality industry has always been a critical
                     component of New York City’s economic and cultural
@@ -48,7 +48,7 @@
 
                 <!-- <el-divider></el-divider> -->
 
-                <el-image src="emp-post.svg" alt=""></el-image>
+                <!-- <el-image src="emp-post.svg" alt=""></el-image> -->
                 <p class="textbox">
                     As the lockdown began, New York City’s restaurant industry
                     faced an unprecedented near-decimation in the daily
@@ -68,8 +68,18 @@
                     the decision to close restaurants for indoor dining.
                 </p>
                 <Timeline :filterData="filterCasesPre" />
-                <!-- <Timeline :filterData="filterCasesPost" /> -->
 
+                <Timeline :filterData="filterResPre" />
+
+                <p class="textbox">
+                    The lockdowns triggered the
+                    <span style="font-weight: bold; color: #de3131"
+                        >largest contraction of economic activity
+                    </span>
+                    for the restaurant industry in its history
+                </p>
+                <!-- <el-divider></el-divider> -->
+                <ImpactBAN />
                 <!-- <el-divider></el-divider> -->
                 <p class="textbox">
                     However, only once the lockdown entered its first month did
@@ -90,29 +100,35 @@
                     jobs.
                 </p>
                 <Timeline :filterData="filterJobsPost" />
-                <p class="textbox">
-                    The lockdowns triggered the
-                    <span style="font-weight: bold; color: #de3131"
-                        >largest contraction of economic activity
-                    </span>
-                    for the restaurant industry in its history
-                </p>
-                <!-- <el-divider></el-divider> -->
-                <ImpactBAN />
+
                 <div class="emp-box">
                     <div class="text">
                         <p class="textbox">
-                            <span style="font-weight: bold; color: #f2994b"
+                            <span style="font-weight: bold; color: #3f7aab"
                                 >Hispanics</span
                             >
                             are the largest share of restaurant labour at
-                            <span style="font-weight: bold; color: #f2994b"
+                            <span style="font-weight: bold; color: #3f7aab"
                                 >44%</span
                             >
-                            and a higher share than among all workers. Asians
-                            also represented a higher share of restaurant
+                            and a higher share than among all workers.
+                            <span style="font-weight: bold; color: #f44a53"
+                                >Asians</span
+                            >
+                            at
+                            <span style="font-weight: bold; color: #f44a53"
+                                >20%</span
+                            >
+                            are also represented a higher share of restaurant
                             workers than among all occupations citywide, in
-                            contrast to either Whites or African Americans
+                            contrast to either
+                            <span style="font-weight: bold; color: #f2994b"
+                                >Whites</span
+                            >
+                            or
+                            <span style="font-weight: bold; color: #76b7b2"
+                                >African Americans</span
+                            >
                         </p>
                     </div>
                     <div class="chart"><StackedBar /></div>
@@ -174,22 +190,15 @@ export default {
                 this.casesData = data;
                 // console.log(this.casesData)
             });
-
-            //               d3.csv('./race_empl.csv')
-            // .then(data => {
-            //   data.forEach(d => {
-            //     // d.race = d["race"]
-            //     // d.emp_type = d["emp_type"]
-            //    d.tot_emp = +d["emp"]
-            //   })
-            //   console.log(data);
-            //   this.empData = data;
-            //   console.log(this.empData)
-            //    this.subgroups =  d3.map(data, function(d){return(d.race)})
-            //    this.groups = d3.map(data, function(d){return(d.emp_type)})
-            //            console.log(this.subgroups, this.groups)
-
-            // });
+            d3.csv("./reservations.csv").then((data) => {
+                data.forEach((d) => {
+                    d.cases = parseFloat(d["reservations"]) / 100;
+                    d.year = new Date(d.date);
+                });
+                // console.log(data);
+                this.resData = data;
+                // console.log(this.casesData)
+            });
         });
     },
     components: {
@@ -203,6 +212,7 @@ export default {
         return {
             jobsData: [],
             casesData: [],
+            resData: [],
             // empData: [],
             // subgroups: [],
             // groups: [],
@@ -210,8 +220,9 @@ export default {
             jobs_date_post: Date.parse("01 Jan 2020"),
             jobs_date_post_new: Date.parse("1/4/20"),
             cases_date_pre: Date.parse("29 Feb 2020"),
-            cases_date_post: Date.parse("19 Mar 2020"),
+            cases_date_post: Date.parse("20 Mar 2020"),
             cases_date_post_new: Date.parse("30 Mar 2021"),
+            res_date_post: Date.parse("20 Mar 2020"),
         };
     },
     mounted() {},
@@ -248,6 +259,14 @@ export default {
                 return time >= from && time <= until;
             });
         },
+        filterResPre() {
+            const from = this.jobs_date_post;
+            const until = this.res_date_post;
+            return this.resData.filter(function (entry) {
+                const time = entry.year;
+                return time >= from && time <= until;
+            });
+        },
     },
     methods: {},
 };
@@ -259,9 +278,9 @@ export default {
 body {
     padding: 0;
     margin: 1.5em;
-    background-color: black;
+    background-color: #121212;
     font-family: "Helvetica Neue";
-    color: floralwhite;
+    color: rgba(255, 250, 240, 0.9);
 }
 .App {
     display: flex;
@@ -309,8 +328,10 @@ p {
     /* opacity: 0.925; */
     -webkit-filter: drop-shadow(0 2px 4px rgba(59, 59, 61, 0.4));
     filter: drop-shadow(0 2px 4px rgba(59, 59, 61, 0.4));
-    background-color: rgba(126, 132, 138, 0.205);
-    color: #fff;
+    /* background-color: rgba(126, 132, 138, 0.205); */
+    background-color: rgba(126, 132, 138, 0.125);
+
+    color: rgba(255, 250, 240, 0.9);
     border: 1px solid hsla(0, 0%, 43.9%, 0.2);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
