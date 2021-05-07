@@ -1,7 +1,7 @@
 var config = {
   style: "mapbox://styles/smanzar/cki6j8dxf3o2p19trqspv7hoh", // Update this with your own too
   accessToken:
-    "pk.eyJ1Ijoic21hbnphciIsImEiOiJja2k2ajRjaWowMXEyMnFxZ2IxbTRhaDkwIn0.bZyOlzap-1dfxKN_BHcCPw", // Update this with your own
+    "pk.eyJ1Ijoic21hbnphciIsImEiOiJja29kbWMza2wwM3RxMnJxZzgxZnJsc3hlIn0.ckerqg7rLRdGx7-A06UNzA", // Update this with your own
   showMarkers: false,
   // theme: "light",
   alignment: "left",
