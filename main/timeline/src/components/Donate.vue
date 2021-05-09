@@ -1,5 +1,5 @@
 <template>
-    <el-image src="links-donate.png" class="link-img"> </el-image>
+    <el-image src="links-donate.png"> </el-image>
     <div id="link-list">
         <p class="linkbox">One Fair Wage Emergency Fund</p>
         <p class="linkbox">Restaurant Workers Relief Foundation</p>
@@ -15,10 +15,6 @@ export default {
 </script>
 
 <style scoped>
-.link-img {
-    display: grid;
-    place-items: center;
-}
 #link-list {
     display: grid;
     place-items: center;
