@@ -22,13 +22,17 @@
             fill="none"
             stroke="url(#myGradient)"
             stroke-width="2.2"
+            @mouseover="onStateSelected"
+            @mouseout="onStateDeselected"
         />
+        <!-- <div id="toolTip"></div> -->
         <!-- <XAxis 
       :xScale="xScale" 
       :yTranslate="height - margin"
     /> -->
         <YAxis :yScale="yScale" :xTranslate="margin" />
     </svg>
+    <Tooltip :description="currentStateDescription" />
 </template>
 
 <script>
@@ -36,6 +40,8 @@ import * as d3 from "d3";
 
 // import XAxis from './timeline-XAxis.vue';
 import YAxis from "./timeline-YAxis.vue";
+import Tooltip from "./Tooltip";
+
 export default {
     name: "Timeline",
     props: {
@@ -57,6 +63,7 @@ export default {
         // LabeledPoint,
         // XAxis,
         YAxis,
+        Tooltip,
     },
 
     computed: {
@@ -79,8 +86,11 @@ export default {
                 .y((d) => this.yScale(d.cases))
                 .curve(d3.curveMonotoneX);
 
-            // console.log(this.filterData)
+            // console.log(this.filterData);
             return lineGenerator(this.filterData);
+        },
+        currentStateDescription: function () {
+            return "Date: " + this.currentState;
         },
 
         // filteredDate() {
@@ -93,12 +103,42 @@ export default {
         // }
     },
     mounted() {},
-    updated() {},
+    updated() {
+        // var tooltip = d3
+        //     .select("#toolTip")
+        //     .append("div")
+        //     .style("color", "white");
+        // d3.select("path").on("mouseover", function () {
+        //     tooltip
+        //         .html("")
+        //         .append("img")
+        //         .attr("class", "toolTip")
+        //         .attr("width", 340)
+        //         .attr("height", 100)
+        //         .html(function (d) {
+        //             return "Name: " + "<b>" + d.year + "</b>" + "<br/>";
+        //         });
+        // });
+    },
+    methods: {
+        onStateSelected: function (case_countLine) {
+            // this.currentState = this.filterData[0].year;
+            this.currentState = case_countLine.target.attribute;
+
+            console.log(this.currentState);
+        },
+        // eslint-disable-next-line no-unused-vars
+        onStateDeselected: function (path) {
+            this.currentState = undefined;
+        },
+    },
+
     data() {
         return {
             margin: 50,
             width: 1400,
             height: 400,
+            currentState: undefined,
             // tooltip: d3
             //     .select("path")
             //     .append("div")

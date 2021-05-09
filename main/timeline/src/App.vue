@@ -133,6 +133,7 @@
                     </div>
                     <div class="chart"><StackedBar /></div>
                 </div>
+                <Donate />
             </el-main>
         </el-container>
         <!-- <div class="header"> -->
@@ -168,6 +169,7 @@ import * as d3 from "d3";
 import Timeline from "./components/timeline-chart.vue";
 import StackedBar from "./components/StackedBar.vue";
 import ImpactBAN from "./components/ImpactBAN.vue";
+import Donate from "./components/Donate.vue";
 
 export default {
     name: "App",
@@ -207,6 +209,7 @@ export default {
         // AreaChart,
         StackedBar,
         ImpactBAN,
+        Donate,
     },
     data() {
         return {
