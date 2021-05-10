@@ -92,15 +92,6 @@ export default {
         currentStateDescription: function () {
             return "Date: " + this.currentState;
         },
-
-        // filteredDate() {
-        //   const from = Date.parse('29 Feb 2020')
-        //   const until = Date.parse('19 Mar 2020')
-        //   return this.casesData.filter(function(entry) {
-        //     const time = entry.year
-        //         return time >= from && time <= until
-        //   })
-        // }
     },
     mounted() {},
     updated() {
@@ -123,7 +114,7 @@ export default {
     methods: {
         onStateSelected: function (case_countLine) {
             // this.currentState = this.filterData[0].year;
-            this.currentState = case_countLine.target.attribute;
+            this.currentState = case_countLine.clientX;
 
             console.log(this.currentState);
         },

@@ -1,10 +1,28 @@
 <template>
     <el-image src="links-donate.png"> </el-image>
     <div id="link-list">
-        <p class="linkbox">One Fair Wage Emergency Fund</p>
-        <p class="linkbox">Restaurant Workers Relief Foundation</p>
-        <p class="linkbox">Eater List of NYC Relief Funds</p>
-        <p class="linkbox">World Central Kitchen</p>
+        <p class="linkbox">
+            <a href="https://secure.actblue.com/donate/ofwfund"
+                >One Fair Wage Emergency Fund</a
+            >
+        </p>
+        <p class="linkbox">
+            <a
+                href="https://secure.restaurantworkerscf.org/np/clients/restaurantworkerscf/donation.jsp?campaign=2&forwardedFromSecureDomain=1&test=true"
+                >Restaurant Workers Relief Foundation</a
+            >
+        </p>
+        <p class="linkbox">
+            <a
+                href="https://ny.eater.com/2020/3/20/21188159/donate-to-nyc-staff-funds-coronavirus"
+                >Eater's List of NYC Relief Funds</a
+            >
+        </p>
+        <p class="linkbox">
+            <a href="https://donate.wck.org/give/236738/#!/donation/checkout"
+                >World Central Kitchen</a
+            >
+        </p>
     </div>
 </template>
 
@@ -47,5 +65,12 @@ export default {
     border: 1px solid hsla(0, 0%, 43.9%, 0.2);
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+a,
+a:hover,
+a:visited {
+    color: rgba(255, 250, 240, 0.9);
+    text-decoration: none;
+    font-weight: 500;
 }
 </style>;
