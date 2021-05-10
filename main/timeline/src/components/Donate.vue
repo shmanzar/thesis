@@ -2,24 +2,28 @@
     <el-image src="links-donate.png"> </el-image>
     <div id="link-list">
         <p class="linkbox">
-            <a href="https://secure.actblue.com/donate/ofwfund"
+            <a href="https://secure.actblue.com/donate/ofwfund" target="_blank"
                 >One Fair Wage Emergency Fund</a
             >
         </p>
         <p class="linkbox">
             <a
                 href="https://secure.restaurantworkerscf.org/np/clients/restaurantworkerscf/donation.jsp?campaign=2&forwardedFromSecureDomain=1&test=true"
+                target="_blank"
                 >Restaurant Workers Relief Foundation</a
             >
         </p>
         <p class="linkbox">
             <a
                 href="https://ny.eater.com/2020/3/20/21188159/donate-to-nyc-staff-funds-coronavirus"
+                target="_blank"
                 >Eater's List of NYC Relief Funds</a
             >
         </p>
         <p class="linkbox">
-            <a href="https://donate.wck.org/give/236738/#!/donation/checkout"
+            <a
+                href="https://donate.wck.org/give/236738/#!/donation/checkout"
+                target="_blank"
                 >World Central Kitchen</a
             >
         </p>
