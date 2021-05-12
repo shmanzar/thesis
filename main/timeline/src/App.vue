@@ -133,6 +133,28 @@
                     </div>
                     <div class="chart"><StackedBar /></div>
                 </div>
+                <p class="textbox">
+                    In fact, as the pandemic progressed, it quickly became
+                    apparent that the systemic inequities of our socio-economic
+                    system woved their way into how the damage and the support
+                    transpired.
+                </p>
+                <div class="fork-section">
+                    <p class="textbox">
+                        <a
+                            href="https://shmanzar.github.io/ths-map/"
+                            target="_blank"
+                            >Explore the story of inequity
+                        </a>
+                    </p>
+                    <p class="textbox">
+                        <a
+                            href="https://shmanzar.github.io/ths-map/map.html"
+                            target="_blank"
+                            >Explore your own neighbourhood
+                        </a>
+                    </p>
+                </div>
                 <Donate />
             </el-main>
         </el-container>
@@ -319,7 +341,18 @@ p {
     font-weight: 400;
     font-style: normal;
 }
-
+a,
+a:visited {
+    color: rgba(255, 250, 240, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    transition: cubic-bezier(0.55, 0.055, 0.675, 0.19) ease-out;
+}
+a:hover,
+a:focus {
+    font-weight: 700;
+    font-size: 1.1em;
+}
 .textbox {
     width: 92.5%;
     max-width: 500px;
@@ -354,6 +387,16 @@ p {
 }
 .emp-box .text {
     grid-area: text;
+}
+
+.fork-section {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    /* max-width: 400px; */
+    text-align: center;
 }
 </style>
 

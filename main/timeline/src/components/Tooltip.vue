@@ -26,7 +26,7 @@ module.exports = {
 #tooltipContainer {
     position: absolute;
     /* bottom: 0; */
-    bottom: 150px;
+    bottom: 400px;
     width: 230px;
     /* left: -125px; */
     left: 100px;
