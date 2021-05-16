@@ -32,7 +32,7 @@
     /> -->
         <YAxis :yScale="yScale" :xTranslate="margin" />
     </svg>
-    <!-- <Tooltip :description="currentStateDescription" /> -->
+    <Tooltip :description="currentStateDescription" />
 </template>
 
 <script>
@@ -40,7 +40,7 @@ import * as d3 from "d3";
 
 // import XAxis from './timeline-XAxis.vue';
 import YAxis from "./timeline-YAxis.vue";
-// import Tooltip from "./Tooltip";
+import Tooltip from "./Tooltip";
 
 export default {
     name: "Timeline",
@@ -63,7 +63,7 @@ export default {
         // LabeledPoint,
         // XAxis,
         YAxis,
-        // Tooltip,
+        Tooltip,
     },
 
     computed: {
