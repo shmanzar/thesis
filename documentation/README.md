@@ -34,15 +34,15 @@ Shaheryar Manzar
 
 I would like to thank _Daniel Sauter_ for his unparalleled and invaluable guidance, inspiration, support and advice throughout my time at the school.
 
-I also owe an immense debt of gratitude to *Aaron Hill*for his patient teaching and unwavering support which laid the foundation for practically all of the technical skills I needed to execute this, and all future, projects. _Richard The_ started me off with my journey into the world of data & design and always pushed me to do better than what I thought I was previously capable of.
+I also owe an immense debt of gratitude to _Aaron Hill_ for his patient teaching and unwavering support which laid the foundation for practically all of the technical skills I needed to execute this, and all future, projects. _Richard The_ started me off with my journey into the world of data & design and always pushed me to do better than what I thought I was previously capable of.
 
 I would like to thank _Shannon Mattern_ for helping me unlearn and then relearn what a map is, can be, and should be. _Eric Brelsford_, then patiently and graciously taught me to implement these newly-learned ideas of spatiality into code.
 
 _Sohee Cho_, TA extraordinaire, was a constant source of inspiration, guidance and a trouble-shooter of last resort - I cannot thank her enough.
 
-I would also like to thank _Mio Akasako_(Class of 2020) in particular, and all of the _alumni_ of the Data Visualization program, in general for their timely, valuable and always generous feedback.
+I would also like to thank _Mio Akasako_ (Class of 2020) in particular, and all of the _alumni_ of the Data Visualization program, in general for their timely, valuable and always generous feedback.
 
-I would like to thank _Chef Sardar Shahnawaz Khan_, _Sardar Shahwali Khan_, *Nargis Boota*and the entire*Āmú*staff for teaching me everything I know about restaurants and cooking.
+I would like to thank _Chef Sardar Shahnawaz Khan_, _Sardar Shahwali Khan_, _Nargis Boota_ and the entire _Āmú_ staff for teaching me everything I know about restaurants and cooking.
 
 Finally, I owe all my success to my partner, _Sara Obaid_, _my parents_, and the _2021 Class of Data Visualization_ for encouraging, supporting and challenging me to do my best work.
 
